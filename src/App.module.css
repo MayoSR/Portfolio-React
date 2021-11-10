@@ -1,4 +1,13 @@
 .navbar {
     height: 60px;
-    background: blue
+    background: #4dc6ff
+}
+
+.iconNormal {
+    background: transparent
+}
+
+;
+.iconHighlighted {
+    background: rgba(255, 255, 255, 0.2)
 }

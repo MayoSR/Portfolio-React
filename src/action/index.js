@@ -26,3 +26,15 @@ export function resetMicroWindowApplication() {
     return { type: "RESET_MICRO_WINDOW" }
 }
 
+export function setMicroWindowTimer(timer,) {
+    return { type: "SET_MICRO_WINDOW_TIMER", timer: timer }
+}
+
+export function setSelectedIcon(id) {
+    return { type: "SELECTED_ICON", selectedIcon: id }
+}
+
+export function setVirtualDeviceApp(link) {
+    return { type: "VIRTUAL_DEVICE_LINK", link: link }
+}
+

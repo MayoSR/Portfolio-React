@@ -1,0 +1,37 @@
+#virtual-device-frame {
+    background: black;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .responsive-iframe {
+        width: 345px;
+        height: 630px;
+        border-radius: 10px;
+    }
+}
+
+.responsive-iframe::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+
+.responsive-iframe::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle */
+
+.responsive-iframe::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+
+.responsive-iframe::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -22,22 +22,24 @@ export default function Navbar() {
         setTimeNow(new Date().toLocaleString().split(", ")[1].slice(0, 5))
     }, 60000);
 
+
+
     return (
-        <Flex justifyContent="center" alignItems="center" position="fixed" zIndex="10000" bottom="0" left="0" right="0" bg="blue" w="100vw" h="60px">
+        <Flex justifyContent="center" alignItems="center" position="fixed" zIndex="10000" bottom="0" left="0" right="0" bg="#4dc6ff" w="100vw" h="50px">
             {apps.filter(app => app.isOpen).map(app => { return <NavbarIcons appData={app} /> })}
-            <Flex alignItems="center" position="absolute" height="60px" right="0" >
+            <Flex alignItems="center" position="absolute" height="50px" right="0" >
                 <Flex flexDir="column" alignItems="center" class="language" mr={4}>
-                    <Text fontSize="sm">ENG</Text>
-                    <Text fontSize="sm">US</Text>
+                    <Text color="white" fontSize="xs">ENG</Text>
+                    <Text color="white" fontSize="xs">US</Text>
                 </Flex>
                 <Flex alignItems="center" class="language" mr={2}>
-                    <Icon as={BiWifi} w={5} h={5} mr={2} />
-                    <Icon as={BiVolumeFull} w={5} h={5} mr={2} />
-                    <Icon as={BsBatteryCharging} w={5} h={5} mr={2} />
+                    <Icon color="white" as={BiWifi} w={5} h={5} mr={2} />
+                    <Icon color="white" as={BiVolumeFull} w={5} h={5} mr={2} />
+                    <Icon color="white" as={BsBatteryCharging} w={5} h={5} mr={2} />
                 </Flex>
                 <Flex flexDir="column" alignItems="flex-end" class="language" mr={8}>
-                    <Text fontSize="sm">{timeNow}</Text>
-                    <Text fontSize="sm">{dateToday}</Text>
+                    <Text color="white" fontSize="xs">{timeNow}</Text>
+                    <Text color="white" fontSize="xs">{dateToday}</Text>
                 </Flex>
 
             </Flex>
