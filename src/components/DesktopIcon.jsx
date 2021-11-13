@@ -25,16 +25,16 @@ export default function DesktopIcon(props) {
     }
 
     return (
-        <Flex ml={3} borderRadius="3px" mb={3} style={selectedIconID === props.appData.id ? { background: "rgba(255, 255, 255, 0.2)" } : { background: "transparent" }} userSelect="none" flexDirection="column" alignItems="center" height="70px" width="75px" onClick={(e) => setSelectedIconDesktop(e)} onDoubleClick={() => openFolderWindow(props.appData.id)}>
+        <Flex ml={3} borderRadius="3px" mb={3} style={selectedIconID === props.appData.id ? { background: "rgba(255, 255, 255, 0.2)" } : { background: "transparent" }} userSelect="none" flexDirection="column" alignItems="center" height="70px" width="75px" onClick={(e) => setSelectedIconDesktop(e)} onMouseOver={(e) => setSelectedIconDesktop(e)} onDoubleClick={() => openFolderWindow(props.appData.id)}>
             <Box pointerEvents="none">
 
-                <Box w="50px" h="50px" mb={1}>
+                <Box w="45px" h="45px" mb={1}>
                     <img src={props.appData.icon} alt="nav icon" />
                 </Box>
             </Box>
 
-            <Box pointerEvents="none">
-                <Text color="white" fontSize="12px">{props.appData.name}</Text>
+            <Box pointerEvents="none" width="70px">
+                <Text align="center" isTruncated color="white" fontSize="12px">{props.appData.name}</Text>
             </Box>
         </Flex>
     )

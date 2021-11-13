@@ -11,7 +11,6 @@ import AppWindow from './AppWindow'
 
 export default function MicroWindow(props) {
 
-    console.log(props.app)
     return (
         <AppWindow appId={props.app.id} appExe={props.app.executable.props.appExe} size={"sm"} pos={props.pos} />
     )

@@ -13,7 +13,7 @@ export default function VirtualDeviceManager() {
                 src={virtualDeviceManagerLink}
                 height="630px"
                 width="345px"
-                style={{ "border-radius": "40px" }}
+                style={{ "border-radius": "20px" }}
                 class="responsive-iframe"
             />
         </div>

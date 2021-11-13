@@ -12,31 +12,36 @@ export default function AppWindow(props) {
 
     const dispatch = useDispatch()
     const apps = useSelector(state => state.apps)
-    const [width, setWidth] = useState(55)
-    const [height, setHeight] = useState(500)
+    const positionOffset = useSelector(state => state.latestWindowPositionOffset)
     const timeoutID = useSelector(state => state.timeoutID)
-    const appData = apps.filter(app => app.id === props.appId)[0]
+    const [appData, setAppData] = useState(apps.filter(app => app.id === props.appId)[0])
+
+    useEffect(() => {
+        setAppData(apps.filter(app => app.id === props.appId)[0])
+    }, [apps, props.appId])
+
 
 
     const closeApp = (e, id) => {
         dispatch(closeWindow(id))
         dispatch(resetMicroWindowApplication())
-        e.target.closest(".parent-window").style.borderRadius = "10px"
-        e.target.closest(".parent-window").style.border = "1px solid lightblue"
-        setHeight(500)
-        setWidth(55)
+        dispatch(saveApplicationWindowPosition(id, {
+            translateX: positionOffset,
+            translateY: positionOffset,
+            height: 500,
+            width: 50,
+        }))
     }
 
     const fullScreen = (e, id) => {
-        setWidth(100)
         let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-        setHeight(vh - 50)
         dispatch(saveApplicationWindowPosition(id, {
             translateX: 0,
-            translateY: 0
+            translateY: 0,
+            width: 100,
+            height: vh - 50
         }))
-        e.target.closest(".parent-window").style.borderRadius = "0px"
-        e.target.closest(".parent-window").style.border = "0px"
+        e.stopPropagation()
     }
 
     const logWindowLocation = (e, id) => {
@@ -49,38 +54,37 @@ export default function AppWindow(props) {
             if (clientX <= 100) {
                 dispatch(saveApplicationWindowPosition(id, {
                     translateX: 0,
-                    translateY: 0
+                    translateY: 0,
+                    height: vh - 50
                 }))
-                setHeight(vh - 50)
             }
             else {
-
                 const style = window.getComputedStyle(srcEle)
                 const matrix = new DOMMatrixReadOnly(style.transform)
                 dispatch(saveApplicationWindowPosition(id, {
                     translateX: matrix.m41,
-                    translateY: matrix.m42
+                    translateY: matrix.m42,
+                    height: appData.height,
+                    width: appData.width,
                 }))
-                setHeight(500)
-                setWidth(55)
             }
-            console.log("try", clientX, clientY)
         }
         catch (e) {
-            console.log("except", clientX, clientY)
             if (clientX <= 100) {
                 dispatch(saveApplicationWindowPosition(id, {
                     translateX: 0,
-                    translateY: 0
+                    translateY: 0,
+                    height: vh - 50
                 }))
             }
             else if ((clientX > vw - 400 || clientY > vh - 200) || (clientY < 0 && clientX > vw / 2)) {
                 dispatch(saveApplicationWindowPosition(id, {
                     translateX: vw * 0.45,
-                    translateY: 0
+                    translateY: 0,
+                    height: vh - 50
                 }))
             }
-            setHeight(vh - 50)
+
 
         }
 
@@ -92,16 +96,15 @@ export default function AppWindow(props) {
     }
 
     const resetMicroWindowTimer = () => {
-        console.log(timeoutID)
         clearTimeout(timeoutID)
         dispatch(setMicroWindowTimer(null))
     }
 
     const closeMicroWindow = () => {
-        // let timerID = setTimeout(() => {
-        //     dispatch(resetMicroWindowApplication())
-        // }, 500)
-        // dispatch(setMicroWindowTimer(timerID))
+        let timerID = setTimeout(() => {
+            dispatch(resetMicroWindowApplication())
+        }, 500)
+        dispatch(setMicroWindowTimer(timerID))
 
     }
 
@@ -140,13 +143,13 @@ export default function AppWindow(props) {
 
             <Draggable resize="both" onMouseDown={(e) => bringToFront(e, appData.id)} position={{ x: appData.left, y: appData.top }} onStop={(e) => logWindowLocation(e, appData.id)}>
 
-                <Box position="absolute" left="0" top="0" width={'width' in appData ? appData.width + 10 + "px" : width + "vw"} height={'height' in appData ? appData.height + 45 + "px" : height + "px"} background="#f8f8f8" zIndex={appData.zIndex} borderRadius="10px" overflow="hidden" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" border="1px solid lightblue" className="parent-window">
+                <Box position="absolute" left="0" top="0" width={appData.constraint ? appData.width + "px" : appData.width + "vw"} height={appData.constrained === "controlled" ? appData.height + "px" : appData.height + "px"} background="#f8f8f8" zIndex={appData.zIndex} borderRadius="10px" overflow="hidden" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" border="1px solid lightblue" className="parent-window">
                     <Flex justifyContent="space-between" alignItems="center" position="absolute" left="0" top="0" height="40px" width="100%" background="#e6e6e6">
                         <Flex justifyContent="space-between" alignItems="center" ml={2} pointerEvents="none">
                             <Box w="20px" h="20px" mr={1}>
                                 <img src={appData.icon} alt="nav icon" />
                             </Box>
-                            <Heading fontSize="lg" color="#212121">FolderName</Heading>
+                            <Heading fontSize="lg" color="#212121">{appData.name}</Heading>
                         </Flex>
                         <Flex justifyContent="space-between" alignItems="center">
                             <Center className="icon-button" alignItems="center" height="40px" width="40px" onMouseLeave={(e) => hoverColor(e, "transparent")} onMouseOver={(e) => hoverColor(e, "rgba(0,0,0,0.2)")}>
@@ -162,7 +165,7 @@ export default function AppWindow(props) {
 
                         </Flex>
                     </Flex>
-                    <Box height={Math.max(370, 'height' in appData ? appData.height + 45 : height) + "px"} paddingTop="40px" overflow={'overflow' in appData ? appData.overflow : "scroll"}>
+                    <Box height={Math.max(370, appData.height) + "px"} paddingTop="40px" overflow={'overflow' in appData ? appData.overflow : "scroll"}>
 
                         {props.appExe}
                     </Box>

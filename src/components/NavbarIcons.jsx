@@ -29,11 +29,11 @@ export default function NavbarIcons(props) {
     }
 
     return (
-        <Flex className="icon-container" p={"5px"} borderRadius="3px" flexDirection="column" alignItems="center" mr={3} onMouseLeave={(e) => closeMicroWindow(e)} onMouseOver={(e) => openMicroWindow(e, props.appData.id)} onClick={(e) => bringToFront(e, props.appData.id)}>
-            <Box w="25px" h="25px" mb={1}>
-                <img src={props.appData.icon} alt="nav icon" />
+        <Flex className="icon-container" p={"2px"} px={"6px"} borderRadius="3px" flexDirection="column" alignItems="center" onMouseLeave={(e) => closeMicroWindow(e)} onMouseOver={(e) => openMicroWindow(e, props.appData.id)} onClick={(e) => bringToFront(e, props.appData.id)}>
+            <Box w="30px" h="30px" mb={1}>
+                <img src={props.appData.icon} alt="nav icon" style={{ height: "30px" }} />
             </Box>
-            <Box bg="grey" borderRadius="20px" width="10px" height="5px"></Box>
+            <Box bg="grey" borderRadius="20px" width="8px" height="4px" marginTop="-2px"></Box>
         </Flex>
     )
 }

@@ -38,3 +38,7 @@ export function setVirtualDeviceApp(link) {
     return { type: "VIRTUAL_DEVICE_LINK", link: link }
 }
 
+export function mainWindowToggle(toggle) {
+    return { type: "MAIN_WINDOW_TOGGLE", toggle: toggle }
+}
+
