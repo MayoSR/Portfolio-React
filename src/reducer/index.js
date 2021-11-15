@@ -39,6 +39,7 @@ let initialState = {
     selectedIcon: null,
     virtualDeviceManagerLink: null,
     mainWindowStatus: 0,
+    wifiButtonStatus: 0,
     apps: [
         {
             id: 1,
@@ -299,6 +300,9 @@ export default function rootReducer(state = initialState, action) {
             return state
         case "MAIN_WINDOW_TOGGLE":
             state = { ...state, mainWindowStatus: action.toggle }
+            return state
+        case "WIFI_WINDOW_TOGGLE":
+            state = { ...state, wifiButtonStatus: action.toggle }
             return state
 
         default:

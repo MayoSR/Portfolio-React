@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import classes from "./styles/MainWindow.module.css"
 import { Box, Flex, Heading, Icon, Text, InputGroup, InputLeftElement, Input, Grid, Center } from "@chakra-ui/react"
 import { useDispatch, useSelector, useStore } from 'react-redux'
 import NavbarIcons from './NavbarIcons'
@@ -10,6 +9,7 @@ import FolderWindow from './FolderWindow'
 import Draggable from 'react-draggable';
 import AppWindow from './AppWindow'
 import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react"
+import classes from "./styles/MainWindow.module.css"
 
 export default function SkillsWindow() {
 
@@ -203,7 +203,7 @@ export default function SkillsWindow() {
             </Flex>
             <Flex justifyContent="space-between" alignItems="center" width="100%">
 
-                <Box overflowY="scroll" height="218px" className={classes.disableScrollbar} ref={skillBox} pl="20px">
+                <Box overflowY="scroll" className={classes.disableScrollbar} height="218px" ref={skillBox} pl="20px">
 
                     <Grid gridTemplateColumns="repeat(6,1fr)" columnGap="20px" rowGap="20px" pb="20px">
                         {

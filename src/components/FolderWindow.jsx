@@ -5,7 +5,6 @@ import NavbarIcons from './NavbarIcons'
 import { AiOutlineMinus, AiOutlineClose, AiOutlineFullscreen, AiFillFolder } from 'react-icons/ai';
 import { BiLinkExternal } from 'react-icons/bi';
 import { openApplicationExecutable, setVirtualDeviceApp } from '../action'
-import classes from './styles/FolderWindow.module.css'
 import { Link } from "@chakra-ui/react"
 
 export default function FolderWindow(props) {
@@ -27,7 +26,7 @@ export default function FolderWindow(props) {
 
     return (
 
-        <Box className={classes.fontCompensator} p={4} maxW={"1000px"}>
+        <Box p={4} width="100%" height="100%" bg="whitesmoke">
             <Grid gridTemplateColumns="30% 15% 10% 10% 10% 10%" width="100%" columnGap="20px" pl={"40px"} pb={"20px"}>
                 <Box style={{ borderRight: "1px solid black" }} pr={3}>
                     <Heading color="#828282" fontSize="md">Name</Heading>
@@ -67,7 +66,7 @@ export default function FolderWindow(props) {
                             <Text color="#212121" fontSize="sm" marginLeft="20px">1,592KB</Text>
                         </Flex>
                         <Flex pl={"18px"}>
-                            <Link fontSize="sm" color="#212121">
+                            <Link fontSize="sm" color="#212121" href={app.urlGitHub} isExternal>
                                 View <Icon as={BiLinkExternal} mx="2px" />
                             </Link>
                         </Flex>

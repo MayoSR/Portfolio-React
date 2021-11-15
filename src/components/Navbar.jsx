@@ -8,11 +8,13 @@ import { BsChevronUp } from 'react-icons/bs';
 import { BsBatteryCharging } from 'react-icons/bs';
 import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react"
 import { mainWindowToggle } from '../action';
+import { wifiWindowToggle } from '../action';
 
 export default function Navbar() {
 
     let apps = useSelector(state => state.apps)
     let mainWindowStatus = useSelector(state => state.mainWindowStatus)
+    let wifiWindowStatus = useSelector(state => state.wifiButtonStatus)
     let dateTodayTemp = new Date().toLocaleString().split(", ")[0].split("/");
     let dateToday =
         dateTodayTemp[1] + "-" + dateTodayTemp[0] + "-" + dateTodayTemp[2];
@@ -27,6 +29,8 @@ export default function Navbar() {
     }, 60000);
 
 
+    const [wifiIconState, setWifiIconState] = useState(0)
+
     return (
         <Flex justifyContent="center" alignItems="center" position="fixed" zIndex="10000" bottom="0" left="0" right="0" bg="linear-gradient(to right top, #0c346b, #073775, #033a80, #013c8a, #013f95, #013f95, #013f95, #013f95, #013c8a, #033a80, #073775, #0c346b);" w="100vw" h="50px">
             <Flex className="icon-container" p={"2px"} px={"6px"} borderRadius="3px" flexDirection="column" alignItems="center" onClick={() => dispatch(mainWindowToggle(1 - mainWindowStatus))}>
@@ -37,12 +41,11 @@ export default function Navbar() {
             {apps.filter(app => app.isOpen).map(app => { return <NavbarIcons appData={app} /> })}
             <Flex alignItems="center" position="absolute" height="50px" right="0" >
                 <Icon color="white" as={BsChevronUp} w={5} h={5} mr={2} />
-                <Flex flexDir="column" alignItems="center" class="language" mr={4}>
+                <Flex flexDir="column" alignItems="center" class="language">
                     <Text color="white" fontSize="xs">ENG</Text>
                     <Text color="white" fontSize="xs">US</Text>
                 </Flex>
-                <Flex alignItems="center" class="language" mr={2}>
-
+                <Flex borderRadius="5px" bg={wifiIconState ? "rgba(255,255,255,0.1)" : "transparent"} m="8px" p="4px" py="10px" alignItems="center" class="language" onClick={() => { dispatch(wifiWindowToggle(1 - wifiWindowStatus)) }} onMouseOver={() => setWifiIconState(1)} onMouseLeave={() => setWifiIconState(0)}>
                     <Icon color="white" as={BiWifi} w={5} h={5} mr={2} />
                     <Icon color="white" as={BiVolumeFull} w={5} h={5} mr={2} />
                     <Icon color="white" as={BsBatteryCharging} w={5} h={5} mr={2} />
