@@ -1,8 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import TestApp from "../components/apps/TestApp"
+import JobPicker from "../components/apps/JobPicker"
+import MoviePicker from '../components/apps/MoviePicker'
+import RecipePicker from '../components/apps/RecipePicker'
+import FoodOrdering from '../components/apps/FoodOrdering'
+import CropAnalysis from '../components/apps/CropAnalysis'
+import EmergencyApp from '../components/apps/EmergencyApp'
+import ProgrammingLanguageAnalysis from '../components/apps/ProgrammingLanguageAnalysis'
+import HTMLWireframe from '../components/apps/HTMLWireframe'
 import AppWindow from '../components/AppWindow'
 import FolderWindow from '../components/FolderWindow'
 import VirtualDeviceManager from '../components/VirtualDeviceManager'
+import AirDrawing from '../components/apps/AirDrawing'
+
+import Connect4 from '../components/apps/Connect4'
+import StoryGenerator from '../components/apps/StoryGenerator'
+import QuestionBank from '../components/apps/QuestionBank'
 
 let appIconRoute = "icons/"
 
@@ -12,12 +24,12 @@ function getAppIconPath(icon) {
 }
 
 let AVD = {
-    id: 5,
+    id: 1000,
     icon: getAppIconPath("avd"),
     name: "Virtual Device Manager",
     folder: 3,
     isOpen: 0,
-    executable: <AppWindow appId={5} appExe={<VirtualDeviceManager />} />,
+    executable: <AppWindow appId={1000} appExe={<VirtualDeviceManager />} />,
     zIndex: 10003,
     top: 100,
     left: 100,
@@ -47,7 +59,7 @@ let initialState = {
             name: "Job Tracker App",
             folder: 100,
             isOpen: 0,
-            executable: <AppWindow appId={1} appExe={<TestApp />} />,
+            executable: <AppWindow appId={1} appExe={<JobPicker />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -63,7 +75,7 @@ let initialState = {
             name: "Movie Picker App",
             folder: 100,
             isOpen: 0,
-            executable: <AppWindow appId={2} appExe={<TestApp />} />,
+            executable: <AppWindow appId={2} appExe={<MoviePicker />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -79,7 +91,7 @@ let initialState = {
             name: "Recipe Picker App",
             folder: 100,
             isOpen: 0,
-            executable: <AppWindow appId={3} appExe={<TestApp />} />,
+            executable: <AppWindow appId={3} appExe={<RecipePicker />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -95,7 +107,7 @@ let initialState = {
             name: "Food Ordering App",
             folder: 100,
             isOpen: 0,
-            executable: <AppWindow appId={4} appExe={<TestApp />} />,
+            executable: <AppWindow appId={4} appExe={<FoodOrdering />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -111,7 +123,7 @@ let initialState = {
             name: "Emergency App",
             folder: 100,
             isOpen: 0,
-            executable: <AppWindow appId={5} appExe={<TestApp />} />,
+            executable: <AppWindow appId={5} appExe={<EmergencyApp />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -127,7 +139,7 @@ let initialState = {
             name: "Connect 4",
             folder: 102,
             isOpen: 0,
-            executable: <AppWindow appId={6} appExe={<TestApp />} />,
+            executable: <AppWindow appId={6} appExe={<Connect4 />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -142,7 +154,7 @@ let initialState = {
             name: "HTML Wireframe Converter",
             folder: 101,
             isOpen: 0,
-            executable: <AppWindow appId={7} appExe={<TestApp />} />,
+            executable: <AppWindow appId={7} appExe={<HTMLWireframe />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -157,7 +169,7 @@ let initialState = {
             name: "Crop Analysis",
             folder: 101,
             isOpen: 0,
-            executable: <AppWindow appId={8} appExe={<TestApp />} />,
+            executable: <AppWindow appId={8} appExe={<CropAnalysis />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -172,7 +184,7 @@ let initialState = {
             name: "Programming language analysis from Stackoverflow Users",
             folder: 102,
             isOpen: 0,
-            executable: <AppWindow appId={9} appExe={<TestApp />} />,
+            executable: <AppWindow appId={9} appExe={<ProgrammingLanguageAnalysis />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -187,7 +199,37 @@ let initialState = {
             name: "Story generator from books",
             folder: 101,
             isOpen: 0,
-            executable: <AppWindow appId={10} appExe={<TestApp />} />,
+            executable: <AppWindow appId={10} appExe={<StoryGenerator />} />,
+            zIndex: 1000,
+            top: 100,
+            left: 100,
+            height: 500,
+            width: 50,
+            urlGitHub: "https://github.com/MayoSR/HTML-Template-to-Website-converter/tree/master/8thSemProject",
+            onDesktop: false,
+        },
+        {
+            id: 11,
+            icon: getAppIconPath("stylus"),
+            name: "Air Drawing",
+            folder: 102,
+            isOpen: 0,
+            executable: <AppWindow appId={11} appExe={<AirDrawing />} />,
+            zIndex: 1000,
+            top: 100,
+            left: 100,
+            height: 500,
+            width: 50,
+            urlGitHub: "https://github.com/MayoSR/HTML-Template-to-Website-converter/tree/master/8thSemProject",
+            onDesktop: false,
+        },
+        {
+            id: 12,
+            icon: getAppIconPath("question"),
+            name: "Similar Questions from a Question Bank",
+            folder: 102,
+            isOpen: 0,
+            executable: <AppWindow appId={12} appExe={<QuestionBank />} />,
             zIndex: 1000,
             top: 100,
             left: 100,
@@ -200,42 +242,42 @@ let initialState = {
             id: 100,
             name: "UI Projects",
             icon: getAppIconPath("folder"),
-            executable: <AppWindow appId={100} appExe={<FolderWindow folderId={100} />} />,
+            executable: <AppWindow appId={100} appExe={<FolderWindow folderId={100} folderName={"UI Projects"} />} />,
             type: "FOLDER",
             isOpen: 0,
             zIndex: 1000,
             top: 100,
             left: 100,
-            height: 500,
-            width: 50,
+            height: 750,
+            width: 60,
             onDesktop: true,
         },
         {
             id: 101,
             name: "Machine Learning and Data Science",
             icon: getAppIconPath("folder"),
-            executable: <AppWindow appId={101} appExe={<FolderWindow folderId={101} />} />,
+            executable: <AppWindow appId={101} appExe={<FolderWindow folderId={101} folderName={"Machine Learning and Data Science"} />} />,
             type: "FOLDER",
             isOpen: 0,
             zIndex: 1000,
             top: 100,
             left: 100,
-            height: 500,
-            width: 50,
+            height: 750,
+            width: 60,
             onDesktop: true,
         },
         {
             id: 102,
             name: "Misc Projects",
             icon: getAppIconPath("folder"),
-            executable: <AppWindow appId={102} appExe={<FolderWindow folderId={102} />} />,
+            executable: <AppWindow appId={102} appExe={<FolderWindow folderId={102} folderName={"Misc Projects"} />} />,
             type: "FOLDER",
             isOpen: 0,
             zIndex: 1000,
             top: 100,
             left: 100,
-            height: 500,
-            width: 50,
+            height: 750,
+            width: 60,
             onDesktop: true,
         },
     ]
@@ -258,8 +300,8 @@ export default function rootReducer(state = initialState, action) {
             state = { ...state, topZIndex: state.topZIndex + 1, apps: [...state.apps.filter(app => app.id !== action.selectedAppId), { ...selectedFolder }] }
             return state
         case "CLOSE_WINDOW":
-            if (action.selectedAppId === 5) {
-                state = { ...state, apps: [...state.apps.filter(app => app.id !== 5)] }
+            if (action.selectedAppId === 1000) {
+                state = { ...state, apps: [...state.apps.filter(app => app.id !== 1000)] }
             }
             else {
                 selectedFolder = {
@@ -296,7 +338,7 @@ export default function rootReducer(state = initialState, action) {
             state = { ...state, selectedIcon: action.selectedIcon }
             return state
         case "VIRTUAL_DEVICE_LINK":
-            state = { ...state, virtualDeviceManagerLink: action.link, apps: [...state.apps.filter(app => app.id !== 5), { ...AVD, isOpen: 1 }] }
+            state = { ...state, virtualDeviceManagerLink: action.link, apps: [...state.apps.filter(app => app.id !== 1000), { ...AVD, isOpen: 1 }] }
             return state
         case "MAIN_WINDOW_TOGGLE":
             state = { ...state, mainWindowStatus: action.toggle }

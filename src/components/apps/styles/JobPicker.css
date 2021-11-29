@@ -1,0 +1,41 @@
+.h1-max {
+    font-size: 56px;
+}
+
+.spread {
+    display: flex;
+    justify-content: space-between;
+}
+
+.framework-box img {
+    height: 40px;
+}
+
+.framework-box p {
+    margin-top: 5px;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.frameworks {
+    display: flex;
+}
+
+.framework-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+}
+
+.content {
+    background: #f8f8f8;
+    padding: 20px 40px;
+}
+
+@media screen and (max-width: 1200px) {
+    .spread {
+        flex-direction: column;
+    }
+}

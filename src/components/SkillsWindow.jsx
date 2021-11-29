@@ -187,7 +187,7 @@ export default function SkillsWindow() {
     }
 
     return (
-        <Flex overflow="hidden" borderRadius="10px" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" position="absolute" bg="#0742a3" height="75vh" width="550px" left="35vw" bottom="60px" flexDirection="column" alignItems="center" py="40px">
+        <Flex onClick={e => e.stopPropagation()} overflow="hidden" borderRadius="10px" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" position="absolute" bg="#0742a3" height="75vh" width="550px" left="35vw" bottom="60px" flexDirection="column" alignItems="center" py="40px">
             <Box px="40px" width="100%">
                 <InputGroup mb={"30px"} >
                     <InputLeftElement

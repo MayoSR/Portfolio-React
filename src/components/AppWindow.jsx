@@ -144,7 +144,7 @@ export default function AppWindow(props) {
             <Draggable resize="both" onMouseDown={(e) => bringToFront(e, appData.id)} position={{ x: appData.left, y: appData.top }} onStop={(e) => logWindowLocation(e, appData.id)}>
 
                 <Box position="absolute" left="0" top="0" width={appData.constraint ? appData.width + "px" : appData.width + "vw"} height={appData.constrained === "controlled" ? appData.height + "px" : appData.height + "px"} background="#f8f8f8" zIndex={appData.zIndex} borderRadius="10px" overflow="hidden" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" border="1px solid lightblue" className="parent-window">
-                    <Flex justifyContent="space-between" alignItems="center" position="absolute" left="0" top="0" height="40px" width="100%" background="#e6e6e6">
+                    <Flex justifyContent="space-between" alignItems="center" position="absolute" left="0" top="0" height="40px" width="100%" background="transparent">
                         <Flex justifyContent="space-between" alignItems="center" ml={2} pointerEvents="none">
                             <Box w="20px" h="20px" mr={1}>
                                 <img src={appData.icon} alt="nav icon" />
@@ -165,7 +165,7 @@ export default function AppWindow(props) {
 
                         </Flex>
                     </Flex>
-                    <Box height={Math.max(370, appData.height) + "px"} paddingTop="40px" overflow={'overflow' in appData ? appData.overflow : "scroll"}>
+                    <Box height={Math.max(370, appData.height) + "px"} marginTop="40px" overflow={'overflow' in appData ? appData.overflow : "scroll"}>
 
                         {props.appExe}
                     </Box>

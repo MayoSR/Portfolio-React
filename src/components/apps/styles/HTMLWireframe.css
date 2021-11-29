@@ -1,0 +1,12 @@
+.howto-window {
+    padding: 20px;
+    background: white;
+}
+
+.howto-window h3 {
+    margin: 0;
+}
+
+.answer-weight {
+    font-weight: bold;
+}

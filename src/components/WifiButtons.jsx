@@ -29,7 +29,7 @@ export default function WifiButtons() {
     }
 
     return (
-        <Flex overflow="hidden" borderRadius="10px" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" position="absolute" bg="#0742a3" height="400px" width="365px" right="15px" bottom="60px" flexDirection="column" alignItems="center" py="20px">
+        <Flex onClick={e => e.stopPropagation()} overflow="hidden" borderRadius="10px" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" position="absolute" bg="#0742a3" height="400px" width="365px" right="15px" bottom="60px" flexDirection="column" alignItems="center" py="20px">
             <Flex justifyContent="center" width="100%">
                 <Grid gridTemplateColumns="repeat(3,1fr)" columnGap="15px" rowGap="20px">
 
