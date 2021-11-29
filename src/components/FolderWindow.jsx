@@ -75,29 +75,32 @@ export default function FolderWindow(props) {
                         variant="ghost"
                     />
                 })}
-                <Flex border="1px solid grey" height="40px" width="500px" mr={"10px"} alignItems="center" justifyContent="space-between" p="10px">
-                    <Flex alignItems="center">
-                        <Icon as={MdSmartScreen} w={7} h={7} />
-                        <Icon as={BiChevronRight} w={4} h={4} />
-                        <Text>Desktop</Text>
-                        <Icon as={BiChevronRight} w={4} h={4} />
-                        <Text>{props.folderName}</Text>
+                <Flex alignItems="center" w="50vw">
+
+                    <Flex border="1px solid grey" height="40px" width="60%" mr={"10px"} alignItems="center" justifyContent="space-between" p="10px">
+                        <Flex alignItems="center">
+                            <Icon as={MdSmartScreen} w={7} h={7} />
+                            <Icon as={BiChevronRight} w={4} h={4} />
+                            <Text>Desktop</Text>
+                            <Icon as={BiChevronRight} w={4} h={4} />
+                            <Text>{props.folderName}</Text>
+                        </Flex>
+                        <Flex>
+                            <Icon as={BiChevronDown} w={5} h={5} />
+                            <Icon as={IoRefreshOutline} w={5} h={5} />
+                        </Flex>
                     </Flex>
-                    <Flex>
-                        <Icon as={BiChevronDown} w={5} h={5} />
-                        <Icon as={IoRefreshOutline} w={5} h={5} />
-                    </Flex>
+                    <InputGroup w="40%">
+                        <InputLeftElement
+                            pointerEvents='none'
+                            children={<Icon as={AiOutlineSearch} color='gray.300' />}
+                        />
+                        <Input h="40px" placeholder='Search' borderRadius="0" />
+                    </InputGroup>
                 </Flex>
-                <InputGroup w="220px">
-                    <InputLeftElement
-                        pointerEvents='none'
-                        children={<Icon as={AiOutlineSearch} color='gray.300' />}
-                    />
-                    <Input h="40px" placeholder='Search' borderRadius="0" />
-                </InputGroup>
             </Flex>
             <Flex>
-                <Flex flex="0.15" borderRight="1px solid grey" marginTop="100px" flexDir="column" justifyContent="flex-start">
+                <Flex flex="0.1" borderRight="1px solid grey" marginTop="100px" flexDir="column" justifyContent="flex-start">
                     <Flex alignItems="center" width="100%">
                         <Icon as={BiChevronDown} w={5} h={5} />
                         <Icon as={AiFillStar} w={5} h={5} color="gold" />
@@ -109,13 +112,13 @@ export default function FolderWindow(props) {
                                 <Box w="20px" h="20px" mr={1}>
                                     <img src={folder.icon} alt="nav icon" />
                                 </Box>
-                                <Text fontSize="sm" width="150px" color="white" isTruncated>{folder.name}</Text>
+                                <Text fontSize="sm" width="100px" color="white" isTruncated>{folder.name}</Text>
                             </Flex>
                         })}
                     </Flex>
 
                 </Flex>
-                <Flex flex="0.85" flexDirection="column" pl={"20px"}>
+                <Flex flex="0.9" flexDirection="column" pl={"20px"}>
 
                     <Grid marginTop="100px" gridTemplateColumns="30% 15% 10% 10% 10% 10%" width="100%" columnGap="20px" pl={"40px"} pb={"20px"}>
                         <Box style={{ borderRight: "1px solid black" }} pr={3}>
