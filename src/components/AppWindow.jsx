@@ -28,8 +28,8 @@ export default function AppWindow(props) {
         dispatch(saveApplicationWindowPosition(id, {
             translateX: positionOffset,
             translateY: positionOffset,
-            height: 500,
-            width: 50,
+            height: 750,
+            width: 60,
         }))
     }
 

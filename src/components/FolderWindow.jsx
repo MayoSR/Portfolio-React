@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Box, Flex, Heading, Icon, Text, Grid, Button, Input, InputGroup, InputLeftElement } from "@chakra-ui/react"
 import { useSelector, useDispatch } from 'react-redux'
 import NavbarIcons from './NavbarIcons'
@@ -19,6 +19,8 @@ export default function FolderWindow(props) {
     const dispatch = useDispatch()
     const [selected, setSelected] = useState(null)
     const [selectedQuickAccess, setSelectedQuickAccess] = useState(null)
+    const [searchFilter, setSearchFilter] = useState("")
+    const searchRef = useRef(null)
 
     const openApplication = (e, id) => {
         e.stopPropagation()
@@ -33,7 +35,7 @@ export default function FolderWindow(props) {
     return (
 
         <Box p={4} width="100%" height="100%" bg="#212121">
-            <Flex position="absolute" left="0" top="40px" right="0" width="100%" height="50px" bg="" alignItems="center">
+            <Flex borderBottom="1px solid grey" position="absolute" left="0" top="40px" right="0" width="100%" height="50px" bg="" alignItems="center">
                 <Box borderRight="1px solid grey">
 
                     <Button leftIcon={<Icon as={AiOutlinePlusCircle} />} variant='ghost'>
@@ -66,7 +68,7 @@ export default function FolderWindow(props) {
                 />
 
             </Flex>
-            <Flex position="absolute" left="0" top="90px" right="0" width="100%" height="50px" bg="" alignItems="center">
+            <Flex position="absolute" left="0" top="95px" right="0" width="100%" height="50px" bg="" alignItems="center">
                 {[AiOutlineArrowDown, AiOutlineArrowUp, AiOutlineArrowLeft, AiOutlineArrowRight].map(icon => {
                     return <IconButton
                         colorScheme='blue'
@@ -79,7 +81,7 @@ export default function FolderWindow(props) {
 
                     <Flex border="1px solid grey" height="40px" width="60%" mr={"10px"} alignItems="center" justifyContent="space-between" p="10px">
                         <Flex alignItems="center">
-                            <Icon as={MdSmartScreen} w={7} h={7} />
+                            <Icon as={AiFillFolder} color="gold" w={7} h={7} />
                             <Icon as={BiChevronRight} w={4} h={4} />
                             <Text>Desktop</Text>
                             <Icon as={BiChevronRight} w={4} h={4} />
@@ -95,7 +97,7 @@ export default function FolderWindow(props) {
                             pointerEvents='none'
                             children={<Icon as={AiOutlineSearch} color='gray.300' />}
                         />
-                        <Input h="40px" placeholder='Search' borderRadius="0" />
+                        <Input ref={searchRef} onKeyDown={(e) => setSearchFilter(searchRef.current.value.toLowerCase())} h="40px" placeholder={`Search ${props.folderName}`} borderRadius="0" />
                     </InputGroup>
                 </Flex>
             </Flex>
@@ -121,26 +123,26 @@ export default function FolderWindow(props) {
                 <Flex flex="0.9" flexDirection="column" pl={"20px"}>
 
                     <Grid marginTop="100px" gridTemplateColumns="30% 15% 10% 10% 10% 10%" width="100%" columnGap="20px" pl={"40px"} pb={"20px"}>
-                        <Box style={{ borderRight: "1px solid black" }} pr={3}>
+                        <Box style={{ borderRight: "1px solid grey" }} pr={3}>
                             <Heading color="#fff" fontSize="md">Name</Heading>
                         </Box>
-                        <Flex style={{ borderRight: "1px solid black" }}>
+                        <Flex style={{ borderRight: "1px solid grey" }}>
                             <Heading color="#fff" fontSize="md">Date Modified</Heading>
                         </Flex>
-                        <Flex style={{ borderRight: "1px solid black" }}>
+                        <Flex style={{ borderRight: "1px solid grey" }}>
                             <Heading color="#fff" fontSize="md">Type</Heading>
                         </Flex>
-                        <Flex style={{ borderRight: "1px solid black" }}>
+                        <Flex style={{ borderRight: "1px solid grey" }}>
                             <Heading color="#fff" fontSize="md">Size</Heading>
                         </Flex>
-                        <Flex style={{ borderRight: "1px solid black" }}>
+                        <Flex style={{ borderRight: "1px solid grey" }}>
                             <Heading color="#fff" fontSize="md">Code</Heading>
                         </Flex>
-                        <Flex justifyContent="center" pr={1} style={{ borderRight: "1px solid black" }}>
+                        <Flex justifyContent="center" pr={1} style={{ borderRight: "1px solid grey" }}>
                             <Heading color="#fff" fontSize="md">Live Demo</Heading>
                         </Flex>
                     </Grid>
-                    {apps.filter(app => app.folder === props.folderId).map(app => {
+                    {apps.filter(app => (app.folder === props.folderId) && (app.name.toLowerCase().indexOf(searchFilter) !== -1)).map(app => {
                         return <Flex p={"5px"} borderRadius="3px" cursor="pointer" style={app.id === selected ? { background: "rgba(153, 223, 255,0.2)" } : { background: "transparent" }} width="100%" onMouseLeave={(e) => setSelected(null)} onMouseOver={(e) => setSelected(app.id)} onDoubleClick={(e) => openApplication(e, app.id)}>
                             <Grid gridTemplateColumns="30% 15% 10% 10% 10% 10%" columnGap="20px" width="100%">
                                 <Flex alignItems="center" width="100%">
@@ -167,7 +169,7 @@ export default function FolderWindow(props) {
                                     {"link" in app ? <Link fontSize="sm" color="#fff" onClick={() => dispatch(setVirtualDeviceApp(app.link))}>
                                         View <Icon as={BiLinkExternal} mx="2px" />
                                     </Link> :
-                                        <Box borderBottom="4px solid black" width="10px" height="2px" color="black" mt={"7px"} />}
+                                        <Box borderBottom="4px solid grey" width="10px" height="2px" color="grey" mt={"7px"} />}
 
                                 </Flex>
 
