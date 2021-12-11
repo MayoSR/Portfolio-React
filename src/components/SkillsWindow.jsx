@@ -4,7 +4,7 @@ import { useDispatch, useSelector, useStore } from 'react-redux'
 import NavbarIcons from './NavbarIcons'
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { AiOutlinePoweroff } from 'react-icons/ai';
-import { bringApplicationWindowToFront, closeWindow, saveApplicationWindowPosition } from '../action'
+import { bringApplicationWindowToFront, closeWindow, login, saveApplicationWindowPosition } from '../action'
 import FolderWindow from './FolderWindow'
 import Draggable from 'react-draggable';
 import AppWindow from './AppWindow'
@@ -12,6 +12,8 @@ import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react"
 import classes from "./styles/MainWindow.module.css"
 
 export default function SkillsWindow() {
+
+    const dispatch = useDispatch()
 
     let icons = [
         {
@@ -240,10 +242,10 @@ export default function SkillsWindow() {
             </Grid>
             <Flex alignItems="center" justifyContent="space-between" position="absolute" bottom="0" left="0" right="0" width="700px" height="80px" bg="#05327a" p="15px" px="40px">
                 <Flex alignItems="center">
-                    <Avatar size="md" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" mr="10px" />
-                    <Heading fontSize="md">Daniel Ricciardo</Heading>
+                    <Avatar size="md" name="Mayank Rao" src={"/static/me.jpg"} mr="10px" />
+                    <Heading fontSize="md">Mayank Sailesh Rao</Heading>
                 </Flex>
-                <Icon as={AiOutlinePoweroff} w={6} h={6} />
+                <Icon cursor="pointer" as={AiOutlinePoweroff} onClick={() => dispatch(login(0))} w={6} h={6} />
             </Flex>
         </Flex >
     )

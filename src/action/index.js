@@ -46,3 +46,7 @@ export function wifiWindowToggle(toggle) {
     return { type: "WIFI_WINDOW_TOGGLE", toggle: toggle }
 }
 
+export function login(status) {
+    return { type: "LOGIN", status: status }
+}
+
