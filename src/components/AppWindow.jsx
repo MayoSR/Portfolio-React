@@ -28,7 +28,7 @@ export default function AppWindow(props) {
         dispatch(saveApplicationWindowPosition(id, {
             translateX: positionOffset,
             translateY: positionOffset,
-            height: 750,
+            height: 600,
             width: 60,
         }))
     }
@@ -116,7 +116,7 @@ export default function AppWindow(props) {
     if (props.size === "sm") {
         return (
 
-            <Box onMouseLeave={(e) => closeMicroWindow()} onMouseOver={() => resetMicroWindowTimer()} position="absolute" width={"220px"} height={"170px"} left={props.pos["x"] - 100 + "px"} top="76vh" overflow="hidden" borderRadius="10px" background="#f8f8f8" zIndex={10000}>
+            <Box onMouseLeave={(e) => closeMicroWindow()} onMouseOver={() => resetMicroWindowTimer()} position="absolute" width={"220px"} height={"170px"} left={props.pos["x"] - 100 + "px"} bottom="60px" overflow="hidden" borderRadius="10px" background="#f8f8f8" zIndex={10000}>
                 <Flex justifyContent="space-between" alignItems="center" zIndex={10001} position="absolute" left="0" top="0" height="30px" width="100%" background="#e6e6e6">
                     <Flex justifyContent="space-between" alignItems="center" ml={2}>
                         <Box w="15px" h="15px" mr={1}>

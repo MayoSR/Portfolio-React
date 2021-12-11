@@ -140,6 +140,9 @@ export default function SkillsWindow() {
         return textA < textB ? -1 : textA > textB ? 1 : 0;
     });
 
+    const skillsFilterIp = useRef(null)
+    const [filterText, setFilterText] = useState("")
+
     let topSkills = [
         {
             url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
@@ -194,7 +197,7 @@ export default function SkillsWindow() {
                         pointerEvents="none"
                         children={<Icon as={BiSearchAlt2} w={5} h={5} color="white" />}
                     />
-                    <Input borderBottom="2px solid cyan" bg="rgba(0,0,0,0.6)" color="white" type="tel" placeholder="Search skill" />
+                    <Input ref={skillsFilterIp} onKeyUp={(e) => setFilterText(skillsFilterIp.current.value)} borderBottom="2px solid cyan" bg="rgba(0,0,0,0.6)" color="white" type="tel" placeholder="Search skill" />
                 </InputGroup>
             </Box>
             <Flex justifyContent="space-between" alignItems="center" width="100%" mb={"30px"} px="40px">
@@ -207,7 +210,7 @@ export default function SkillsWindow() {
 
                     <Grid gridTemplateColumns="repeat(6,1fr)" columnGap="20px" rowGap="20px" pb="20px">
                         {
-                            icons.map(icon => {
+                            icons.filter(icon => icon.name.indexOf(filterText) !== -1).map(icon => {
                                 return <Center flexDirection="column">
                                     <img style={{ height: "35px", width: "35px" }} src={icon.url} alt="icon" />
                                     <Text fontSize="xs">{icon.name}</Text>

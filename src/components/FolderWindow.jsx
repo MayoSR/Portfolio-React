@@ -80,12 +80,12 @@ export default function FolderWindow(props) {
                 <Flex alignItems="center" w="50vw">
 
                     <Flex border="1px solid grey" height="40px" width="60%" mr={"10px"} alignItems="center" justifyContent="space-between" p="10px">
-                        <Flex alignItems="center">
+                        <Flex alignItems="center" overflowX={"hidden"}>
                             <Icon as={AiFillFolder} color="gold" w={7} h={7} />
                             <Icon as={BiChevronRight} w={4} h={4} />
                             <Text>Desktop</Text>
                             <Icon as={BiChevronRight} w={4} h={4} />
-                            <Text>{props.folderName}</Text>
+                            <Text flexGrow={"1"} isTruncated>{props.folderName}</Text>
                         </Flex>
                         <Flex>
                             <Icon as={BiChevronDown} w={5} h={5} />
