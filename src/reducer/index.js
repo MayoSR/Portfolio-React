@@ -18,6 +18,7 @@ import QuestionBank from '../components/apps/QuestionBank'
 import AboutMe from '../components/apps/AboutMe'
 import AboutPortfolio from '../components/apps/AboutPortfolio'
 import Crypto0x from '../components/apps/Crypto0x'
+import Resume from '../components/apps/Resume'
 
 let appIconRoute = "icons/"
 
@@ -55,7 +56,7 @@ let initialState = {
     virtualDeviceManagerLink: null,
     mainWindowStatus: 0,
     wifiButtonStatus: 0,
-    loginStatus: 0,
+    loginStatus: 1,
     apps: [
         {
             id: 1,
@@ -257,23 +258,10 @@ let initialState = {
         },
         {
             id: 15,
-            icon: getAppIconPath("team"),
+            icon: getAppIconPath("cv"),
             name: "Resume",
             isOpen: 0,
-            executable: <AppWindow appId={15} appExe={<AboutMe />} />,
-            zIndex: 1000,
-            top: 25,
-            left: 100,
-            height: 600,
-            width: 60,
-            onDesktop: true,
-        },
-        {
-            id: 16,
-            icon: getAppIconPath("team"),
-            name: "CV",
-            isOpen: 0,
-            executable: <AppWindow appId={16} appExe={<AboutMe />} />,
+            executable: <AppWindow appId={15} appExe={<Resume />} />,
             zIndex: 1000,
             top: 25,
             left: 100,

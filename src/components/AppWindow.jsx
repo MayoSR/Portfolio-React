@@ -122,7 +122,7 @@ export default function AppWindow(props) {
                         <Box w="15px" h="15px" mr={1}>
                             <img src={appData.icon} alt="nav icon" />
                         </Box>
-                        <Text color="#212121" fontSize="sm" width="150px" isTruncated>FolderName</Text>
+                        <Text color="#212121" fontSize="sm" width="150px" isTruncated>{appData.name}</Text>
                     </Flex>
                     <Center className="icon-button" onClick={(e) => closeApp(e, appData.id)} alignItems="center" height="30px" width="30px" onMouseLeave={(e) => hoverColor(e, "transparent")} onMouseOver={(e) => hoverColor(e, "red")}>
                         <Icon color="#212121" as={AiOutlineClose} w={5} h={5} />

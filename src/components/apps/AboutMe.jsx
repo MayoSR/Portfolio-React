@@ -11,7 +11,7 @@ export default function AboutMe() {
     const [showText, setShowText] = useState(0)
 
     const copyClipboard = () => {
-        navigator.clipboard.writeText("myemail@gmail.com")
+        navigator.clipboard.writeText("mayankrao16university@gmail.com")
         setShowText(1)
         setTimeout(() => { setShowText(0) }, 1000)
     }
@@ -21,7 +21,7 @@ export default function AboutMe() {
             <Flex>
                 <Flex justifyContent="center" flexDir="column" height="100%" pr="40px" borderRight="1px solid lightgrey">
                     <Box>
-                        <img src={"/apps/me/me.jpg"} height="300px" width="300px" style={{ borderRadius: "50%" }} />
+                        <img src={"/static/me.jpg"} height="300px" width="300px" style={{ borderRadius: "50%" }} />
                     </Box>
                     <Flex flexDir="row" width="300px" justifyContent="space-evenly" mt="30px">
                         <Link href="https://github.com/MayoSR" isExternal>
@@ -69,7 +69,11 @@ export default function AboutMe() {
                         <Heading fontSize="5xl">Hello! I am Mayank Sailesh Rao</Heading>
                     </Box>
                     <Box>
-                        <Text fontSize="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+                        <Text fontSize="md" mb="10px">I'm an Associate Software Developer L2 currently working at Publicis Sapient</Text>
+                        <Text fontSize="md" mb="10px">My passions include making accessible technology and interface design. When I'm not working, I usually spend most of my free time either honing my UI skills further, or studying about new technologies in the Fullstack sphere.</Text>
+                        <Text mb="10px" fontSize="md">I normally relax by reading books or articles, watching YouTube videos or Twitch streams or playing Chess, Soccer or gaming</Text>
+                        <Text mb="10px" fontSize="md">Mainly my hobbies consist of making small games or developing apps. While I usually mix up my schedule to avoid burn out, I spend most of my time either considering what app to make next or improvements to my existing apps.</Text>
+                        <Text mb="10px" fontSize="md">When I want to do something truly challenging and outside my usual comfort zone, I like to either solve competitive coding questions or learn new tech stacks. At present, I'm working on learning Rust.</Text>
                     </Box>
                 </Box>
             </Flex>
