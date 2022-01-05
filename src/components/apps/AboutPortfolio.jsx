@@ -28,15 +28,19 @@ export default function AboutPortfolio() {
             <List spacing={3}>
                 <ListItem>
                     <ListIcon as={AiOutlineArrowRight} color='green.500' />
-                    The 'M' icon is the 'start' button. Click on it to view my skills and experience!
+                    Use <span style={{ fontWeight: "bold" }}>Google Chrome </span> for the best experience!
                 </ListItem>
                 <ListItem>
                     <ListIcon as={AiOutlineArrowRight} color='green.500' />
-                    Double clicking opens applications
+                    The <span style={{ fontWeight: "bold" }}>'M' </span> icon is the 'start' button. Click on it to view my skills and experience!
                 </ListItem>
                 <ListItem>
                     <ListIcon as={AiOutlineArrowRight} color='green.500' />
-                    The close buttons close them
+                    <span style={{ fontWeight: "bold" }}>Double clicking </span>opens applications.
+                </ListItem>
+                <ListItem>
+                    <ListIcon as={AiOutlineArrowRight} color='green.500' />
+                    The close buttons close the apps, either from the navbar or from the window itself.
                 </ListItem>
                 <ListItem>
                     <ListIcon as={AiOutlineArrowRight} color='green.500' />
@@ -44,15 +48,15 @@ export default function AboutPortfolio() {
                 </ListItem>
                 <ListItem>
                     <ListIcon as={AiOutlineArrowRight} color='green.500' />
-                    Clicking on a window behind will bring it to the front.
+                    Clicking on a window behind will bring it to the front, or clicking the corresponding navbar icon will bring it to the front as well.
                 </ListItem>
                 <ListItem>
                     <ListIcon as={AiOutlineArrowRight} color='green.500' />
-                    Windows can be dragged around!
+                    Windows can be dragged around.
                 </ListItem>
                 <ListItem>
                     <ListIcon as={AiOutlineArrowRight} color='green.500' />
-                    The navbar on the bottom can be used to close windows, or preview them on hover!
+                    The navbar on the bottom can be used to close windows, or preview them on hover.
                 </ListItem>
             </List>
 
@@ -74,12 +78,12 @@ export default function AboutPortfolio() {
                 <img src={"/static/folder.png"} style={{ margin: "20px 20px 20px 0px" }} />
             </Box>
             <Heading fontSize="3xl" mb="20px">Q: Why are all the apps not hosted?</Heading>
+            <Text mb="20px">
+                Most of the apps that have video content are because they either contain ML models that require a fairly high end backend to run, along with gigantic trained models to function properly. Some of the others are games and have SocketIO connections that won't work without a server.
+
+            </Text>
             <Text>
-                While I have - to the best of my abilities
-                - tried to host every app, not all of them are easy to host and many of the
-                games are multiplayer or rely on socket connections. The others are Machine
-                Learning related and contain models of gigantic proportions that cannot be
-                feasibly hosted on a cost effective server. For these, a video of the app's
+                Therefore, a video of the apps'
                 functioning has been provided instead. If you would still like to try them,
                 most of them can be downloaded and run straight from GitHub.
             </Text>

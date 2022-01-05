@@ -3,7 +3,8 @@ import classes from "../App.module.css"
 import { Box, Flex, Heading, Icon, Text, Center } from "@chakra-ui/react"
 import { useDispatch, useSelector, useStore } from 'react-redux'
 import NavbarIcons from './NavbarIcons'
-import { AiOutlineMinus, AiOutlineClose, AiOutlineFullscreen, AiFillFolder } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlineClose, AiFillFolder } from 'react-icons/ai';
+import { BiSquare } from 'react-icons/bi';
 import { bringApplicationWindowToFront, closeWindow, resetMicroWindowApplication, saveApplicationWindowPosition, setMicroWindowTimer } from '../action'
 import FolderWindow from './FolderWindow'
 import Draggable from 'react-draggable';
@@ -128,8 +129,8 @@ export default function AppWindow(props) {
                         <Icon color="#212121" as={AiOutlineClose} w={5} h={5} />
                     </Center>
                 </Flex>
-                <Box height="140px" marginTop="30px" overflow="hidden" p={"10px"} bg="#e6e6e6">
-                    <div style={{ zoom: "0.1", height: "100%", overflow: "hidden", borderRadius: "10px" }} >
+                <Box height="140px" marginTop="30px" overflow="hidden" p={"10px"} bg="#e6e6e6" >
+                    <div style={{ zoom: "0.1", height: "100%", overflow: "hidden", borderRadius: "10px", pointerEvents: "none" }} >
                         {props.appExe}
                     </div>
                 </Box>
@@ -157,7 +158,7 @@ export default function AppWindow(props) {
                             </Center>
                             <Center className="icon-button" onClick={(e) => fullScreen(e, appData.id)} alignItems="center" height="40px" width="40px" onMouseLeave={(e) => hoverColor(e, "transparent")} onMouseOver={(e) => hoverColor(e, "rgba(0,0,0,0.2)")}>
 
-                                <Icon color="#212121" as={AiOutlineFullscreen} w={5} h={5} />
+                                <Icon color="#212121" as={BiSquare} w={5} h={5} />
                             </Center>
                             <Center className="icon-button" onClick={(e) => closeApp(e, appData.id)} alignItems="center" height="40px" width="40px" onMouseLeave={(e) => hoverColor(e, "transparent")} onMouseOver={(e) => hoverColor(e, "red")}>
                                 <Icon color="#212121" as={AiOutlineClose} w={5} h={5} />
