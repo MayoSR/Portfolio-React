@@ -56,7 +56,7 @@ let initialState = {
     virtualDeviceManagerLink: null,
     mainWindowStatus: 0,
     wifiButtonStatus: 0,
-    loginStatus: 0,
+    loginStatus: 1,
     apps: [
         {
             id: 1,

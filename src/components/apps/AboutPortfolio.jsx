@@ -14,6 +14,16 @@ export default function AboutPortfolio() {
         <Box color="black" p="40px">
             <Heading fontSize="3xl" mb="20px">Q: What is this?</Heading>
             <Text fontSize="md" mb="20px">This is my web portfolio. It is inspired by the design of Windows 11, and works similar to how an operating system works. Scroll down for some comparison pictures!</Text>
+            <Heading fontSize="3xl" mb="20px">Tutorial</Heading>
+            <iframe
+                src="https://www.loom.com/embed/16193859a91f4adeb8e35c23f3970a33"
+                frameborder="0"
+                webkitallowfullscreen
+                mozallowfullscreen
+                allowfullscreen
+                style={{ width: "100%", height: "500px", marginBottom: "20px" }}
+                title="wireframe video"
+            />
             <Heading fontSize="3xl" mb="20px">Q: How does this work?</Heading>
             <List spacing={3}>
                 <ListItem>
