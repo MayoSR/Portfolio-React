@@ -70,8 +70,8 @@ export default function AboutMe() {
                     </Box>
                     <Box>
                         <Text fontSize="md" mb="10px">I'm an Associate Software Developer L2 currently working at Publicis Sapient</Text>
-                        <Text fontSize="md" mb="10px">My passions include making accessible technology and interface design. When I'm not working, I usually spend most of my free time either honing my UI skills further, or studying about new technologies in the Fullstack sphere.</Text>
-                        <Text mb="10px" fontSize="md">I normally relax by reading books or articles, watching YouTube videos or Twitch streams or playing Chess, Soccer or gaming</Text>
+                        <Text fontSize="md" mb="10px">My passions include making accessible technology and interface design. When I'm not working, I usually spend most of my free time either honing my UI skills further, or studying about new technologies in the FullStack sphere.</Text>
+                        <Text mb="10px" fontSize="md">I normally relax by reading books or articles, watching YouTube videos or Twitch streams or playing Chess, Soccer, swimming, working out or gaming</Text>
                         <Text mb="10px" fontSize="md">Mainly my hobbies consist of making small games or developing apps. While I usually mix up my schedule to avoid burn out, I spend most of my time either considering what app to make next or improvements to my existing apps.</Text>
                         <Text mb="10px" fontSize="md">When I want to do something truly challenging and outside my usual comfort zone, I like to either solve competitive coding questions or learn new tech stacks. At present, I'm working on learning Rust.</Text>
                     </Box>

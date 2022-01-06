@@ -110,7 +110,7 @@ export default function FolderWindow(props) {
                     </Flex>
                     <Flex flexDir="column" mt="10px" pl="20px" mr="10px">
                         {apps.filter(app => app.type === "FOLDER").map(folder => {
-                            return <Flex p="5px" cursor="pointer" borderRadius="5px" style={folder.id === selectedQuickAccess ? { background: "rgba(153, 223, 255,0.2)" } : { background: "transparent" }} onDoubleClick={() => openFolderWindow(folder.id)} onMouseLeave={(e) => setSelectedQuickAccess(null)} onMouseOver={(e) => setSelectedQuickAccess(folder.id)} >
+                            return <Flex p="5px" cursor="pointer" borderRadius="5px" style={folder.id === selectedQuickAccess ? { background: "rgba(153, 223, 255,0.2)" } : { background: "transparent" }} onClick={() => openFolderWindow(folder.id)} onMouseLeave={(e) => setSelectedQuickAccess(null)} onMouseOver={(e) => setSelectedQuickAccess(folder.id)} >
                                 <Box w="20px" h="20px" mr={1}>
                                     <img src={folder.icon} alt="nav icon" />
                                 </Box>
