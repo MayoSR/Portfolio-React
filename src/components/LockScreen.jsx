@@ -38,6 +38,7 @@ export default function LockScreen() {
                     <img src='/static/me.jpg' style={{ height: "250px", width: "250px", borderRadius: "50%" }} />
                 </Box>
                 <Button onClick={() => dispatch(login(1))} mt="40px" width="250px" variant="solid" bg="#212121" color="white" borderBottom="3px solid cyan">Login</Button>
+                <Text mt="20px" fontSize="sm" color="white">Tip: Click to login, there's no password</Text>
             </Flex>
         </Box>
     )
