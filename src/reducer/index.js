@@ -225,7 +225,7 @@ let initialState = {
             left: 100,
             height: 600,
             width: 60,
-            urlGitHub: "https://github.com/MayoSR/HTML-Template-to-Website-converter/tree/master/8thSemProject",
+            urlGitHub: "https://github.com/MayoSR/InvisiblePen",
             onDesktop: false,
         },
         {
