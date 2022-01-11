@@ -161,9 +161,11 @@ export default function FolderWindow(props) {
                                     <Text color="#fff" fontSize="sm" marginLeft="20px">1,592KB</Text>
                                 </Flex>
                                 <Flex pl={"18px"}>
-                                    <Link fontSize="sm" color="#fff" href={app.urlGitHub} isExternal>
+                                    {app.urlGitHub ? <Link fontSize="sm" color="#fff" href={app.urlGitHub} isExternal>
                                         View <Icon as={BiLinkExternal} mx="2px" />
-                                    </Link>
+                                    </Link> :
+                                        <Box borderBottom="4px solid grey" width="10px" height="2px" color="grey" mt={"7px"} />}}
+
                                 </Flex>
                                 <Flex justifyContent="center">
                                     {"link" in app ? <Link fontSize="sm" color="#fff" onClick={() => dispatch(setVirtualDeviceApp(app.link))}>

@@ -180,7 +180,7 @@ let initialState = {
             left: 100,
             height: 600,
             width: 60,
-            urlGitHub: "https://github.com/MayoSR/connect4",
+            urlGitHub: false
             onDesktop: false,
         },
         {
