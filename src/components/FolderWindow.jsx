@@ -164,7 +164,7 @@ export default function FolderWindow(props) {
                                     {app.urlGitHub ? <Link fontSize="sm" color="#fff" href={app.urlGitHub} isExternal>
                                         View <Icon as={BiLinkExternal} mx="2px" />
                                     </Link> :
-                                        <Box borderBottom="4px solid grey" width="10px" height="2px" color="grey" mt={"7px"} />}}
+                                        <Box borderBottom="4px solid grey" width="10px" height="2px" color="grey" mt={"7px"} />}
 
                                 </Flex>
                                 <Flex justifyContent="center">
