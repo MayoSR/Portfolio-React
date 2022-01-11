@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles/FoodOrdering.css'
-import { Box, Flex,Heading,Text } from "@chakra-ui/react"
+import { Box, Flex, Heading, Text } from "@chakra-ui/react"
 
 export default function FoodOrdering() {
     return (
@@ -21,15 +21,7 @@ export default function FoodOrdering() {
 
                 </Box>
             </Box>
-            <Box flex="0.6" height="90vh" p={"40px"}>
 
-                <embed
-                    src={"/apps/emergency/appdoc.pdf#view=FitH"}
-                    type="application/pdf"
-                    height="100%"
-                    width="100%"
-                />
-            </Box>
         </Flex >
 
     )
