@@ -143,7 +143,7 @@ export default function FolderWindow(props) {
                         </Flex>
                     </Grid>
                     {apps.filter(app => (app.folder === props.folderId) && (app.name.toLowerCase().indexOf(searchFilter) !== -1)).map(app => {
-                        return <Flex p={"5px"} borderRadius="3px" cursor="pointer" style={app.id === selected ? { background: "rgba(153, 223, 255,0.2)" } : { background: "transparent" }} width="100%" onMouseLeave={(e) => setSelected(null)} onMouseOver={(e) => setSelected(app.id)} onDoubleClick={(e) => openApplication(e, app.id)}>
+                        return <Flex p={"5px"} borderRadius="3px" cursor="pointer" style={app.id === selected ? { background: "rgba(153, 223, 255,0.2)" } : { background: "transparent" }} width="100%" onMouseLeave={(e) => setSelected(null)} onMouseOver={(e) => setSelected(app.id)} onClick={(e) => openApplication(e, app.id)}>
                             <Grid gridTemplateColumns="30% 15% 10% 10% 10% 10%" columnGap="20px" width="100%">
                                 <Flex alignItems="center" width="100%">
                                     <Box width="25%" w="25px" h="25px" mr={1}>
