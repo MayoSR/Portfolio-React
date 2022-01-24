@@ -7,19 +7,24 @@ import FolderWindow from './components/FolderWindow';
 import { useDispatch, useSelector } from 'react-redux'
 import AppWindow from './components/AppWindow';
 import LockScreen from './components/LockScreen';
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 function App() {
   let apps = useSelector(state => state.apps)
   let loginStatus = useSelector(state => state.loginStatus)
 
+  const handle = useFullScreenHandle();
 
   return (
-    <ChakraProvider>
-      {loginStatus ? <><Desktop />
-        <Navbar /></> : <LockScreen />}
+    <FullScreen handle={handle}>
+      <ChakraProvider>
+
+        {loginStatus ? <><Desktop />
+          <Navbar /></> : <LockScreen fullScreenHandler={handle} />}
 
 
-    </ChakraProvider>
+      </ChakraProvider>
+    </FullScreen>
   );
 }
 

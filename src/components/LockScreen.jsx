@@ -3,7 +3,7 @@ import { Box, Flex, Heading, Icon, Text, InputGroup, InputLeftElement, Input, Gr
 import { login } from '../action';
 import { useDispatch } from 'react-redux';
 
-export default function LockScreen() {
+export default function LockScreen(props) {
     const dayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const [weekday, setWeekday] = useState(new Date().getDay())
@@ -22,7 +22,7 @@ export default function LockScreen() {
     }, 60000);
 
     return (
-        <Box overflow={"hidden"} height="100vh" width="100vw" >
+        <Box overflow={"hidden"} height="100vh" width="100vw" color="#fff" >
             <Box position="absolute" top="0" overflow={"hidden"} left="0" right="0" bottom="0" zIndex="200000" h="100%" w="100%" >
                 <img src='/static/windowsbg_dark.jpg' style={{ height: "100%", width: "100%", transform: 'scale(1.1)', filter: 'blur(20px)' }} alt="bg" />
             </Box>
@@ -37,8 +37,10 @@ export default function LockScreen() {
 
                     <img src='/static/me.jpg' style={{ height: "250px", width: "250px", borderRadius: "50%" }} />
                 </Box>
-                <Button onClick={() => dispatch(login(1))} mt="40px" width="250px" variant="solid" bg="#212121" color="white" borderBottom="3px solid cyan">Login</Button>
+                <Button onClick={() => { dispatch(login(1)); props.fullScreenHandler.enter() }} mt="40px" width="250px" variant="solid" bg="#212121" color="white" borderBottom="3px solid cyan">Login</Button>
                 <Text mt="20px" fontSize="sm" color="white">Tip: Click to login, there's no password</Text>
+                <Text mt="5px" fontSize="sm" color="white">Tip: Use a Desktop and Google Chrome for the best experience!</Text>
+                <Text mt="5px" fontSize="sm" color="white">Tip: Double click opens all applications, although some may also respond to single clicks</Text>
             </Flex>
         </Box>
     )

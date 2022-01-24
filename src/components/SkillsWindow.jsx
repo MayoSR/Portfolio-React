@@ -192,7 +192,7 @@ export default function SkillsWindow() {
     }
 
     return (
-        <Flex onClick={e => e.stopPropagation()} overflow="hidden" borderRadius="10px" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" position="absolute" bg="#0742a3" height="720px" width="700px" zIndex="99999" left="32vw" bottom="60px" flexDirection="column" alignItems="center" py="40px">
+        <Flex onClick={e => e.stopPropagation()} color="#fff" overflow="hidden" borderRadius="10px" boxShadow="-3px 10px 14px 0px rgba(0,0,0,0.45);" position="absolute" bg="#0742a3" height="720px" width="650px" zIndex="99999" left="50%" style={{ transform: 'translateX(-50%)' }} bottom="60px" flexDirection="column" alignItems="center" py="40px">
             <Box px="40px" width="100%">
                 <InputGroup mb={"30px"} >
                     <InputLeftElement
@@ -208,9 +208,9 @@ export default function SkillsWindow() {
             </Flex>
             <Flex justifyContent="space-between" alignItems="center" width="100%">
 
-                <Box overflowY="scroll" className={classes.disableScrollbar} height="218px" width="650px" ref={skillBox} pl="20px">
+                <Box overflowY="scroll" className={classes.disableScrollbar} height="218px" width="600px" ref={skillBox} pl="20px">
 
-                    <Grid gridTemplateColumns="repeat(6,1fr)" columnGap="20px" rowGap="20px" pb="20px">
+                    <Grid gridTemplateColumns="repeat(5,1fr)" columnGap="20px" rowGap="20px" pb="20px">
                         {
                             icons.filter(icon => icon.name.indexOf(filterText) !== -1).map(icon => {
                                 return <Center flexDirection="column">
@@ -240,7 +240,7 @@ export default function SkillsWindow() {
                     </Flex>
                 })}
             </Grid>
-            <Flex alignItems="center" justifyContent="space-between" position="absolute" bottom="0" left="0" right="0" width="700px" height="80px" bg="#05327a" p="15px" px="40px">
+            <Flex alignItems="center" justifyContent="space-between" position="absolute" bottom="0" left="0" right="0" width="650px" height="80px" bg="#05327a" p="15px" px="40px">
                 <Flex alignItems="center">
                     <Avatar size="md" name="Mayank Rao" src={"/static/me.jpg"} mr="10px" />
                     <Heading fontSize="md">Mayank Sailesh Rao</Heading>

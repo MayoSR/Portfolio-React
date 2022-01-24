@@ -7,6 +7,7 @@ export default function AirDrawing() {
         <Box p="40px" color="black">
             <Heading mb="40px"> 0xCrypto</Heading>
             <Text>Designed an app for a crypto grant that we were applying for. Involves creating a card with multiple addresses for services to subscribe to and withdraw money as and when required.</Text>
+            <Text mt="20px">(In progress for now, more details will be available soon)</Text>
         </Box>
     )
 }

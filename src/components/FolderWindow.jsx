@@ -34,7 +34,7 @@ export default function FolderWindow(props) {
 
     return (
 
-        <Box p={4} width="100%" height="100%" bg="#212121">
+        <Box p={4} width="100%" height="100%" bg="#212121" color="#fff">
             <Flex borderBottom="1px solid grey" position="absolute" left="0" top="40px" right="0" width="100%" height="50px" bg="" alignItems="center">
                 <Box borderRight="1px solid grey">
 
